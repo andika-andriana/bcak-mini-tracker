@@ -17,7 +17,7 @@ import {Actions} from 'react-native-router-flux';
 import Logo from '../components/Logo';
 
 // MainScreen Class
-class MainScreen extends Component<{}> {
+class MainScreen extends Component {
   logoutUser = () => {
     this.props.dispatch(logoutUser());
   };

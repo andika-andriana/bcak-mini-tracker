@@ -174,7 +174,6 @@ class Signup extends Component<{}> {
             placeholder="PIN 6 ANGKA"
             secureTextEntry={true}
             component={this.renderTextInput}
-            keyboardType="numeric"
             maxLength={6}
           />
           <Field
@@ -182,7 +181,6 @@ class Signup extends Component<{}> {
             placeholder="ULANGI PIN 6 ANGKA"
             secureTextEntry={true}
             component={this.renderTextInput}
-            keyboardType="numeric"
             maxLength={6}
           />
           <TouchableOpacity

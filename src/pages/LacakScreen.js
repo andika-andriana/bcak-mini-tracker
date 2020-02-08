@@ -9,7 +9,6 @@ import {
   TouchableOpacity,
   YellowBox,
   Image,
-  PermissionsAndroid,
 } from 'react-native';
 import MapView, {Marker} from 'react-native-maps';
 import Geolocation from '@react-native-community/geolocation';
@@ -22,7 +21,7 @@ YellowBox.ignoreWarnings([
 ]);
 
 // LacakScreen Class
-export default class LacakScreen extends Component {
+export default class LacakScreen extends Component<{}> {
   constructor(props) {
     super(props);
     this.state = {
@@ -127,9 +126,22 @@ export default class LacakScreen extends Component {
     Geolocation.getCurrentPosition(
       position => {
         this.setState({
-          latitude: position.coords.latitude,
-          longitude: position.coords.longitude,
-          error: null,
+          stateUser: {
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude,
+            latitudeDelta: 0.00522,
+            longitudeDelta:
+              (Dimensions.get('window').width /
+                Dimensions.get('window').height) *
+              0.00522,
+            error: null,
+          },
+          stateView: {
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude,
+            latitudeDelta: 0.0922,
+            longitudeDelta: 0.0421,
+          },
         });
       },
       error => this.setState({error: error.message}),

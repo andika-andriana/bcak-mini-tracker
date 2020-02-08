@@ -1,7 +1,13 @@
 // Import Module
 import React, {Component} from 'react';
 import {Router, Stack, Scene, Actions} from 'react-native-router-flux';
-import {TouchableOpacity, View, Image} from 'react-native';
+import {
+  TouchableOpacity,
+  View,
+  Image,
+  BackHandler,
+  ToastAndroid,
+} from 'react-native';
 
 // Import Pages
 import Login from './pages/Login';
@@ -12,6 +18,35 @@ import ProfileScreen from './pages/ProfileScreen';
 
 // Routes Class
 export default class Routes extends Component<{}> {
+  constructor(props) {
+    super(props);
+    this.state = {
+      doubleBackToExitPressedOnce: false,
+    };
+  }
+
+  componentDidMount() {
+    BackHandler.addEventListener('hardwareBackPress', this.handleBackButton);
+  }
+
+  componentWillUnmount() {
+    BackHandler.removeEventListener('hardwareBackPress', this.handleBackButton);
+  }
+
+  onButtonPress = () => {
+    BackHandler.removeEventListener('hardwareBackPress', this.handleBackButton);
+    // then navigate
+    // navigate('NewScreen');
+  };
+
+  handleBackButton = () => {
+    if (this.state.doubleBackToExitPressedOnce) {
+      BackHandler.exitApp();
+    }
+    ToastAndroid.show('Press back again to exit', ToastAndroid.SHORT);
+    this.setState({doubleBackToExitPressedOnce: true});
+    return true;
+  };
   render() {
     const renderBackButton = () => (
       <TouchableOpacity onPress={() => Actions.pop()}>
