@@ -35,7 +35,7 @@
 6. jest: 24.9.0
 7. jetifier: ^1.6.5
 8. metro-react-native-babel-preset: 0.56.4
-9. react-test-renderer: 16.9.0"
+9. react-test-renderer: 16.9.0
 
 ### Installasi:
 
