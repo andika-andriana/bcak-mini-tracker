@@ -24,7 +24,7 @@ import {createNewUser} from '../actions/auth.actions';
 import {ErrorUtils} from '../utils/auth.utils';
 import {Actions} from 'react-native-router-flux';
 
-class Signup extends Component<{}> {
+class Signup extends Component {
   goBack() {
     Actions.pop();
   }

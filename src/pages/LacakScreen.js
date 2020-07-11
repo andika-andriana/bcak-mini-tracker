@@ -21,7 +21,7 @@ YellowBox.ignoreWarnings([
 ]);
 
 // LacakScreen Class
-export default class LacakScreen extends Component<{}> {
+export default class LacakScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {

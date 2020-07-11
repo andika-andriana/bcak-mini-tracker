@@ -22,7 +22,7 @@ import Logo from '../components/Logo';
 import Loader from '../components/Loader';
 
 // Login Class
-class Login extends Component<{}> {
+class Login extends Component {
   signup() {
     Actions.signup();
   }
